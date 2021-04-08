@@ -19,15 +19,19 @@ public class Alapmuveletek extends javax.swing.JFrame {
     public Alapmuveletek() {
         initComponents();
     }
+    
+    
     Random rnd = new Random();
-    int szam1 = 0;
-    int szam2 = 0;
-    int eredmeny = 0;
-    int Sorszamok = 0;
+    int szam1;
+    int szam2;
+    int eredmeny;
+    int Sorszamok;
 
     private void Alma() {                                            
         
     } 
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -42,7 +46,7 @@ public class Alapmuveletek extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Osszeadas = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        Kivonas = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
 
@@ -86,8 +90,13 @@ public class Alapmuveletek extends javax.swing.JFrame {
         });
         jMenu1.add(Osszeadas);
 
-        jMenuItem4.setText("Kivonás");
-        jMenu1.add(jMenuItem4);
+        Kivonas.setText("Kivonás");
+        Kivonas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KivonasActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Kivonas);
 
         jMenuItem5.setText("Szorzás");
         jMenu1.add(jMenuItem5);
@@ -140,6 +149,8 @@ public class Alapmuveletek extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
@@ -154,22 +165,50 @@ public class Alapmuveletek extends javax.swing.JFrame {
 
     private void BtnUjFeladatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUjFeladatActionPerformed
         //Sorszámok IDE JÖNNEK: 
+        
         if(Sorszamok == 1){
             osszeadas();
         }
+        else if(Sorszamok == 2){
+            kivonas();
+        }
+        
+        
     }//GEN-LAST:event_BtnUjFeladatActionPerformed
 
     private void OsszeadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OsszeadasActionPerformed
         osszeadas();
     }//GEN-LAST:event_OsszeadasActionPerformed
+
+    private void KivonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KivonasActionPerformed
+        
+        kivonas();
+    }//GEN-LAST:event_KivonasActionPerformed
     private void osszeadas(){
         eredmeny = 0;
         Sorszamok = 1;
-        szam1 = rnd.nextInt(100);
-        szam2 = rnd.nextInt(100);
+        szam1 = rnd.nextInt(50);
+        szam2 = rnd.nextInt(50);
         eredmeny = szam1 + szam2;
         LbSzamolas.setText(szam1 + " + " + szam2);
     }
+    
+    
+    private void kivonas(){
+    
+        Sorszamok = 2;
+        
+        szam1 = rnd.nextInt(50);
+        szam2 = rnd.nextInt(50);
+    
+        LbSzamolas.setText(szam1 + " - " + szam2);
+        
+        eredmeny = szam1 - szam2;
+    }
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -207,6 +246,7 @@ public class Alapmuveletek extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnUjFeladat;
+    private javax.swing.JMenuItem Kivonas;
     private javax.swing.JLabel LbSzamolas;
     private javax.swing.JMenuItem Osszeadas;
     private javax.swing.JButton jButton1;
@@ -215,7 +255,6 @@ public class Alapmuveletek extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JTextField jTextField1;
