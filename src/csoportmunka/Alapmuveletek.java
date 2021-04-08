@@ -6,6 +6,7 @@
 package csoportmunka;
 
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,15 +38,15 @@ public class Alapmuveletek extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         LbSzamolas = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        eredmenyTextFild = new javax.swing.JTextField();
+        ellenorzes = new javax.swing.JButton();
+        megoldas = new javax.swing.JButton();
         BtnUjFeladat = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Osszeadas = new javax.swing.JMenuItem();
         Kivonas = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        szorzas = new javax.swing.JMenuItem();
         jMOsztas = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
@@ -56,19 +57,24 @@ public class Alapmuveletek extends javax.swing.JFrame {
 
         LbSzamolas.setText("Számok itt");
 
-        jTextField1.setMinimumSize(new java.awt.Dimension(100, 20));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        eredmenyTextFild.setMinimumSize(new java.awt.Dimension(100, 20));
+        eredmenyTextFild.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                eredmenyTextFildActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Ellenőrzés");
-
-        jButton2.setText("Megoldás");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        ellenorzes.setText("Ellenőrzés");
+        ellenorzes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                ellenorzesActionPerformed(evt);
+            }
+        });
+
+        megoldas.setText("Megoldás");
+        megoldas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                megoldasActionPerformed(evt);
             }
         });
 
@@ -97,8 +103,13 @@ public class Alapmuveletek extends javax.swing.JFrame {
         });
         jMenu1.add(Kivonas);
 
-        jMenuItem5.setText("Szorzás");
-        jMenu1.add(jMenuItem5);
+        szorzas.setText("Szorzás");
+        szorzas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                szorzasActionPerformed(evt);
+            }
+        });
+        jMenu1.add(szorzas);
 
         jMOsztas.setText("Osztás");
         jMOsztas.addActionListener(new java.awt.event.ActionListener() {
@@ -124,11 +135,11 @@ public class Alapmuveletek extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(LbSzamolas)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(eredmenyTextFild, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ellenorzes, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                    .addComponent(megoldas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -137,11 +148,11 @@ public class Alapmuveletek extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LbSzamolas)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(eredmenyTextFild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ellenorzes))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(megoldas)
                     .addComponent(BtnUjFeladat))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -152,13 +163,13 @@ public class Alapmuveletek extends javax.swing.JFrame {
 
     
     
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void eredmenyTextFildActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eredmenyTextFildActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_eredmenyTextFildActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void megoldasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_megoldasActionPerformed
+        JOptionPane.showMessageDialog(this, "A helyes megoldás: " + eredmeny, "Megoldás", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_megoldasActionPerformed
 
     private void jMOsztasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMOsztasActionPerformed
         osztas();
@@ -168,13 +179,13 @@ public class Alapmuveletek extends javax.swing.JFrame {
     private void BtnUjFeladatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUjFeladatActionPerformed
         //Sorszámok IDE JÖNNEK: 
         
-        if(Sorszamok == 1){
+        if (Sorszamok == 1) {
             osszeadas();
-        }
-        else if(Sorszamok == 2){
+        } else if (Sorszamok == 2) {
             kivonas();
-        }
-        else if(Sorszamok == 4){
+        } else if (Sorszamok == 3) {
+            szorzas();
+        } else if (Sorszamok == 4) {
             osztas();
         }
     }//GEN-LAST:event_BtnUjFeladatActionPerformed
@@ -187,6 +198,19 @@ public class Alapmuveletek extends javax.swing.JFrame {
         
         kivonas();
     }//GEN-LAST:event_KivonasActionPerformed
+
+    private void szorzasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_szorzasActionPerformed
+        szorzas();
+    }//GEN-LAST:event_szorzasActionPerformed
+
+    private void ellenorzesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ellenorzesActionPerformed
+        int BekertErtek = Integer.parseInt(eredmenyTextFild.getText());
+        if (BekertErtek == eredmeny) {
+            JOptionPane.showMessageDialog(this, "Helyes megoldás!", "Ellenőrzés", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Helytelen megoldás!\nPróbáld újra!", "Ellenőrzés", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_ellenorzesActionPerformed
     private void osszeadas(){
         eredmeny = 0;
         Sorszamok = 1;
@@ -207,6 +231,15 @@ public class Alapmuveletek extends javax.swing.JFrame {
         LbSzamolas.setText(szam1 + " - " + szam2);
         
         eredmeny = szam1 - szam2;
+    }
+    
+    private void szorzas() {
+        eredmeny = 0;
+        Sorszamok = 3;
+        szam1 = rnd.nextInt(9) + 1;
+        szam2 = rnd.nextInt(9) + 1;
+        eredmeny = szam1 * szam2;
+        LbSzamolas.setText(szam1 + " * " + szam2);
     }
     
     private void osztas(){
@@ -257,14 +290,14 @@ public class Alapmuveletek extends javax.swing.JFrame {
     private javax.swing.JMenuItem Kivonas;
     private javax.swing.JLabel LbSzamolas;
     private javax.swing.JMenuItem Osszeadas;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton ellenorzes;
+    private javax.swing.JTextField eredmenyTextFild;
     private javax.swing.JMenuItem jMOsztas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton megoldas;
+    private javax.swing.JMenuItem szorzas;
     // End of variables declaration//GEN-END:variables
 }
