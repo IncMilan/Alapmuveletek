@@ -27,7 +27,23 @@ public class Alapmuveletek extends javax.swing.JFrame {
     int szam2;
     int eredmeny;
     int Sorszamok;
-
+    int kerdesDb=0;
+    int probalkozasDb=0;
+    
+    int kerdesOsszDb=0;
+    int kerdesKivonDb=0;
+    int kerdesSzorzasDb=0;
+    int kerdesOsztasDb=0;
+    
+    int probalkozasOsszDb=0;
+    int probalkozasKivonDb=0;
+    int probalkozasSzorzasDb=0;
+    int probalkozasOsztasDb=0;
+    
+    double joValaszDb=0;
+    double rosszValaszDb=0;
+    double osszValaszDb=0;
+    double szazalek=0;
 
     
     
@@ -168,7 +184,27 @@ public class Alapmuveletek extends javax.swing.JFrame {
     }//GEN-LAST:event_eredmenyTextFildActionPerformed
 
     private void megoldasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_megoldasActionPerformed
-        JOptionPane.showMessageDialog(this, "A helyes megoldás: " + eredmeny, "Megoldás", JOptionPane.INFORMATION_MESSAGE);
+        
+        
+        String szoveg="";
+   
+        szoveg +="A helyes megoldás: "+eredmeny;
+        szoveg +="\nKérdések száma összesen: "+kerdesDb;
+        szoveg +="\nPróbálkozások száma összesen: "+probalkozasDb;
+        szoveg +="\nÖsszeadások kérdéseinek száma összesen: "+kerdesOsszDb;
+        szoveg +="\nKivonások kérdéseinek száma összesen: "+kerdesKivonDb;
+        szoveg +="\nSzorzások kérdéseinek száma összesen: "+kerdesSzorzasDb;
+        szoveg +="\nOsztások kérdéseinek száma összesen: "+kerdesOsztasDb;
+        
+        szoveg +="\nÖsszeadások próbálkozásainak száma összesen: "+probalkozasOsszDb;
+        szoveg +="\nKivonások próbálkozásainak száma összesen: "+probalkozasKivonDb;
+        szoveg +="\nSzorzások próbálkozásainak száma összesen: "+probalkozasSzorzasDb;
+        szoveg +="\nOsztások próbálkozásainak száma összesen: "+probalkozasOsztasDb;
+        szoveg +="\nA jó válaszok aránya százalékosan: "+szazalek+"%";
+        
+        
+        
+        JOptionPane.showMessageDialog(this,  szoveg, "Megoldás", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_megoldasActionPerformed
 
     private void jMOsztasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMOsztasActionPerformed
@@ -204,11 +240,29 @@ public class Alapmuveletek extends javax.swing.JFrame {
     }//GEN-LAST:event_szorzasActionPerformed
 
     private void ellenorzesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ellenorzesActionPerformed
+         
         int BekertErtek = Integer.parseInt(eredmenyTextFild.getText());
         if (BekertErtek == eredmeny) {
+            joValaszDb+=1;
             JOptionPane.showMessageDialog(this, "Helyes megoldás!", "Ellenőrzés", JOptionPane.INFORMATION_MESSAGE);
         } else {
+            rosszValaszDb+=1;
             JOptionPane.showMessageDialog(this, "Helytelen megoldás!\nPróbáld újra!", "Ellenőrzés", JOptionPane.ERROR_MESSAGE);
+        }
+        probalkozasDb+=1;
+        osszValaszDb=joValaszDb+rosszValaszDb;
+        szazalek=(joValaszDb/osszValaszDb)*100;
+        
+        
+          if (Sorszamok == 1) {
+            probalkozasOsszDb+=1;
+            
+        } else if (Sorszamok == 2) {
+            probalkozasKivonDb+=1;
+        } else if (Sorszamok == 3) {
+            probalkozasSzorzasDb+=1;
+        } else if (Sorszamok == 4) {
+            probalkozasOsztasDb+=1;
         }
     }//GEN-LAST:event_ellenorzesActionPerformed
     private void osszeadas(){
@@ -218,6 +272,8 @@ public class Alapmuveletek extends javax.swing.JFrame {
         szam2 = rnd.nextInt(50);
         eredmeny = szam1 + szam2;
         LbSzamolas.setText(szam1 + " + " + szam2);
+        kerdesDb+=1;
+        kerdesOsszDb+=1;
     }
     
     
@@ -231,6 +287,8 @@ public class Alapmuveletek extends javax.swing.JFrame {
         LbSzamolas.setText(szam1 + " - " + szam2);
         
         eredmeny = szam1 - szam2;
+        kerdesDb+=1;
+        kerdesKivonDb+=1;
     }
     
     private void szorzas() {
@@ -240,6 +298,8 @@ public class Alapmuveletek extends javax.swing.JFrame {
         szam2 = rnd.nextInt(9) + 1;
         eredmeny = szam1 * szam2;
         LbSzamolas.setText(szam1 + " * " + szam2);
+        kerdesDb+=1;
+        kerdesSzorzasDb+=1;
     }
     
     private void osztas(){
@@ -249,6 +309,8 @@ public class Alapmuveletek extends javax.swing.JFrame {
         szam2 = rnd.nextInt(99)+1;
         eredmeny = szam1 / szam2;
         LbSzamolas.setText(szam1 + " / " + szam2);
+        kerdesDb+=1;
+        kerdesOsztasDb+=1;
     }
     /**
      * @param args the command line arguments
