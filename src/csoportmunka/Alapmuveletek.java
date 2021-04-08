@@ -165,8 +165,8 @@ public class Alapmuveletek extends javax.swing.JFrame {
     private void osszeadas(){
         eredmeny = 0;
         Sorszamok = 1;
-        szam1 = rnd.nextInt(100);
-        szam2 = rnd.nextInt(100);
+        szam1 = rnd.nextInt(50);
+        szam2 = rnd.nextInt(50);
         eredmeny = szam1 + szam2;
         LbSzamolas.setText(szam1 + " + " + szam2);
     }
