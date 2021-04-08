@@ -44,7 +44,7 @@ public class Alapmuveletek extends javax.swing.JFrame {
         Osszeadas = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jMOsztas = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -54,6 +54,7 @@ public class Alapmuveletek extends javax.swing.JFrame {
 
         LbSzamolas.setText("Számok itt");
 
+        jTextField1.setMinimumSize(new java.awt.Dimension(100, 20));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -92,13 +93,13 @@ public class Alapmuveletek extends javax.swing.JFrame {
         jMenuItem5.setText("Szorzás");
         jMenu1.add(jMenuItem5);
 
-        jMenuItem6.setText("Osztás");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        jMOsztas.setText("Osztás");
+        jMOsztas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                jMOsztasActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem6);
+        jMenu1.add(jMOsztas);
 
         jMenuBar1.add(jMenu1);
 
@@ -113,10 +114,11 @@ public class Alapmuveletek extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BtnUjFeladat)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(LbSzamolas)
-                        .addGap(48, 48, 48)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                        .addGap(10, 10, 10)
+                        .addComponent(LbSzamolas)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -138,6 +140,7 @@ public class Alapmuveletek extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -148,14 +151,25 @@ public class Alapmuveletek extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    private void jMOsztasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMOsztasActionPerformed
+        osztas();
+    }//GEN-LAST:event_jMOsztasActionPerformed
 
+    private void osztas(){
+        eredmeny = 0;
+        Sorszamok = 4;
+        szam1 = rnd.nextInt(99)+1;
+        szam2 = rnd.nextInt(99)+1;
+        eredmeny = szam1 / szam2;
+        LbSzamolas.setText(szam1 + " / " + szam2);
+    }
     private void BtnUjFeladatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUjFeladatActionPerformed
         //Sorszámok IDE JÖNNEK: 
         if(Sorszamok == 1){
             osszeadas();
+        }
+        else if(Sorszamok == 4){
+            osztas();
         }
     }//GEN-LAST:event_BtnUjFeladatActionPerformed
 
@@ -211,13 +225,13 @@ public class Alapmuveletek extends javax.swing.JFrame {
     private javax.swing.JMenuItem Osszeadas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JMenuItem jMOsztas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
