@@ -280,10 +280,27 @@ public class Alapmuveletek extends javax.swing.JFrame {
     private void kivonas(){
     
         Sorszamok = 2;
-        
+           
         szam1 = rnd.nextInt(50);
         szam2 = rnd.nextInt(50);
     
+        int csereSzam = 0;
+        
+        if(szam1 == 0){
+        
+            szam1++;
+        }
+        else if(szam2 == 0){
+        
+            szam2++;
+        }
+        else if(szam1 < szam2){
+            
+            csereSzam = szam1;
+            szam1 = szam2;
+            szam2 = csereSzam;     
+        }
+        
         LbSzamolas.setText(szam1 + " - " + szam2);
         
         eredmeny = szam1 - szam2;
